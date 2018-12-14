@@ -11,7 +11,7 @@
 
 <body>
     <p>Hello, ${name}</p>
-    <p>Does hot deploy work? Don't want to ignore this file.</p>
+    <p>Does hot deploy work?</p>
 </body>
 
 </html>
