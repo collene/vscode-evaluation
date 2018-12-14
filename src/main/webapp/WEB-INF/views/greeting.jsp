@@ -11,7 +11,7 @@
 
 <body>
     <p>Hello, ${name}</p>
-    <p>Does hot deploy work?</p>
+    <p>Does hot deploy work? Branching.</p>
 </body>
 
 </html>
