@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <properties>
+        <property name="logDirectory">@log4j.logDirectory@</property>
+        <property name="mainLogFileName">${logDirectory}/demo-tests.log</property>
+    </properties>
+    <appenders>
+        <console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{MMM dd, yyyy HH:mm:ss,SSS} %highlight{[%5level]}{style=Logback} [%t] [%-40logger:%L] %3x - %highlight{%msg%n}{style=Logback}" />
+        </console>
+
+        <RollingFile name="MainFile" fileName="${mainLogFileName}" filePattern="${logDirectory}/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{MMM dd, yyyy HH:mm:ss,SSS} [%5level] [%t] [%-40logger:%L] %3x - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="250 MB" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logDirectory}" maxDepth="2">
+                    <IfFileName glob="*/app-*.log.gz" />
+                    <IfLastModified age="120d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </appenders>
+    <loggers>
+        <logger name="org.springframework" level="WARN" additivity="false">
+            <appender-ref ref="MainFile" />
+            <appender-ref ref="stdout" />
+        </logger>
+        <logger name="org.apache" level="WARN" additivity="false">
+            <appender-ref ref="MainFile" />
+            <appender-ref ref="stdout" />
+        </logger>
+        <logger name="ca.redzed" level="@log4j.redzedLogLevel@" additivity="false">
+            <appender-ref ref="MainFile" />
+            <appender-ref ref="stdout" />
+        </logger>
+        <root level="@log4j.logLevel@" additivity="false">
+            <appender-ref ref="MainFile" />
+            <appender-ref ref="stdout" />
+        </root>
+    </loggers>
+</configuration>

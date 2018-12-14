@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "demo",
+                "projectName": "demo",
+                "workingDirectory": "c:\\Development\\vscodeiscrap\\springboot\\demo",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "demo",
+                "projectName": "demo",
+                "workingDirectory": "c:\\Development\\vscodeiscrap\\springboot\\demo",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
