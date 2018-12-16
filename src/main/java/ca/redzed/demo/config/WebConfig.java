@@ -19,6 +19,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public InternalResourceViewResolver jspViewResolver() {
+        // TODO: testing actions and tasks
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
         bean.setViewClass(JstlView.class);
         bean.setExposeContextBeansAsAttributes(true);
